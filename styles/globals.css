@@ -210,3 +210,8 @@ a article .image img {
 	object-fit: cover;
     mask-image: linear-gradient(to left, rgba(0,0,0,1), rgba(0,0,0,0));
 }
+
+.loading{
+	width: 100%;
+	text-align: center;
+}
