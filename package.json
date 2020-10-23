@@ -10,6 +10,7 @@
   "dependencies": {
     "next": "9.5.5",
     "react": "17.0.0",
-    "react-dom": "17.0.0"
+    "react-dom": "17.0.0",
+    "since-time-ago": "^1.1.1"
   }
 }

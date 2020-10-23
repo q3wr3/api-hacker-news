@@ -11,7 +11,6 @@ export default class MyDocument extends Document {
         return (
         	<Html lang="en">
 			  	<Head>
-			  		<title>Hacker News.</title>
 				    <meta charSet="utf-8" />
 				    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
 			 	</Head>
