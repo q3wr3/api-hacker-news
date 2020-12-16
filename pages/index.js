@@ -56,37 +56,37 @@ export default function Home({posts}) {
         }
     }
 
-
+    console.log(posts)
   
   return (
     <Layout>
       <section id="scrollable">
         {postData.posts.list.map((post,key) => (
-          <Link href={post.url} key={key}>
-            <a className="article">
-              <article>
-               <div className="image">
-                  <img src={post.image} />
-                </div>
-                <div className="item">
-                  <div className="info">
-                    <div className="title">{post.title}</div>
-                    <div className="desc"></div>
+           post.url !== undefined ?
+            <Link href={post.url} key={key}>
+              <a className="article">
+                <article>
+                 <div className="image">
+                    <img src={post.image} />
                   </div>
-                 
-                </div>
-                <div className="meta">
-                  <div className="time-ago">🕘 {since(new Date(post.time * 1000))}</div>
-                  <div className="comments">💬 {post.kids.length}</div>
-                  <div className="rep">👍 {post.score}</div>
-                  <div className="rep">👤 {post.by}</div>
-                </div>
-                
-                  
-                
-              </article>
-            </a>
-          </Link>
+                  <div className="item">
+                    <div className="info">
+                      <div className="title">{post.title}</div>
+                      <div className="desc"></div>
+                    </div>
+                   
+                  </div>
+                  <div className="meta">
+                    <div className="time-ago">🕘 {since(new Date(post.time * 1000))}</div>
+                    <div className="comments">💬 {post.kids.length}</div>
+                    <div className="rep">👍 {post.score}</div>
+                    <div className="rep">👤 {post.by}</div>
+                  </div>
+                </article>
+              </a>
+            </Link>
+          : null 
+          
         ))}
         <div className="loading" ref={loader}>
                   <h2>Loading...</h2>
@@ -105,7 +105,7 @@ export async function getStaticProps() {
     return Promise.resolve(data)
   })
 
-
+  console.log(posts)
   // By returning { props: posts }, the Blog component
   // will receive `posts` as a prop at build time
   return {
@@ -131,6 +131,7 @@ export async function getStaticProps() {
         }
       })
       const image = await fetchImage.json();
+
       data['image'] = !image.error && image.value[0] ? image.value[0].thumbnailUrl : '/defaultimage.jpg'
       if (image.error) console.log(image.error)
       
